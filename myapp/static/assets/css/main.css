@@ -20,8 +20,9 @@
 		line-height: 1;
 	}
 
-	ol, ul {
+	ol, ul ,li {
 		list-style: none;
+		float:left;
 	}
 
 	blockquote, q {

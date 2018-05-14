@@ -13,10 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 import myapp.views as mv
+from django.conf import settings
+from DjangoUeditor import urls as djud_urls
+import myapp.urls as blog_url
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', mv.index),
+    url(r'^ueditor/', include(djud_urls)),
+    url(r'^myapp/', include(blog_url)),
+
 ]
+if settings.DEBUG:
+    from django.conf.urls.static import static
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
