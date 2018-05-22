@@ -51,8 +51,10 @@
 							<p class="major"><!--[-->「{{obj.text}}」</a><!--]--></p>
 							<p class="major"  align="right">————{{obj.poet}}</a><!--]--></p>
 							<ul class="actions vertical">
-								<li><a href="#first" class="button big wide smooth-scroll-middle" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">More</a></li>
-
+								<li><button id="m_button" class="button big wide smooth-scroll-middle" onclick = "play_music()">Play</button></li>
+							<audio id="audio" autoplay="autoplay" >
+							   <source src="/static/bgm.mp3"/>
+							</audio>
 							</ul>
 
 						</div>
@@ -67,6 +69,7 @@
 			</div>
 
 		<!-- Scripts -->
+		    <!--<script src="jquery-3.3.1.js"></script>-->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -82,16 +85,19 @@
 			imgObj.src="/static/images/"+mypic_id+".jpg";
 			}
 			</script>
-			<script>
-			function swap_music() {
-         		   var oAudio = document.getElementById('myaudio');
-          		  if (oAudio.paused) {
-              		  oAudio.play(); 
-           		 }
-          		  else {
-             		   oAudio.pause(); 
-          		  }
-     			 }
+			<script type="text/javascript">
+			function play_music(){
+
+			var player = document.getElementById("audio");
+			var btn = document.getElementById("m_button");
+				if (player.paused){ /*如果已经暂停*/
+					player.play(); /*播放*/
+					btn.innerHTML = "Pause";
+					}else {
+					player.pause();/*暂停*/
+					btn.innerHTML = "Play";
+				}
+     		}
 			</script>
 
 	</body>
