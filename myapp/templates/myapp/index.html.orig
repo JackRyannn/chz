@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns:text-decoration="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>CuiHanZhong</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{% load staticfiles %}
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<style>
+        .black_overlay{
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index:1001;
+            -moz-opacity: 0.8;
+            opacity:.80;
+            filter: alpha(opacity=88);
+        }
+        .white_content {
+            display: none;
+            position: absolute;
+            -moz-border-radius: 15px;
+			-webkit-border-radius: 15px;
+			border-radius:15px;
+            top: 25%;
+            left: 10%;
+            width: 80%;
+            height: 40%;
+            padding: 20px;
+            border: 10px  orange;
+            background-color: white;
+            z-index:1002;
+            overflow: auto;
+        }
+    </style>
+	</head>
+
+	<body>
+
+		<!-- Wrapper -->
+
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<h1>{{time}}</h1>
+							<p class="major"><!--[-->「{{obj.text}}」</a><!--]--></p>
+							<p class="major"  align="right">————{{obj.poet}}</a><!--]--></p>
+							<ul class="actions vertical">
+<<<<<<< HEAD
+								<li><button id="m_button" class="button big wide smooth-scroll-middle" onclick = "play_music()">Play</button></li>
+							<audio id="audio" autoplay="autoplay" >
+							   <source src="/static/bgm.mp3"/>
+							</audio>
+=======
+								<li><button id="m_button" class="button big wide smooth-scroll-middle" onclick = "play_music()">Play</button></li><li><button id="m_button2" class="button big wide smooth-scroll-middle" onclick = "http://www.yinwang.org">Blog</button></li>
+>>>>>>> blog
+							</ul>
+							<audio id="audio" autoplay="autoplay" >
+								<source src="/static/bgm.mp3"/>
+							</audio>
+
+						</div>
+						<div id="light" class="white_content" align="center"><br/><br/>小崔同学<br/> 今天快乐<br /> <br />
+							<a href="javascript:void(0)" class="button big wide smooth-scroll-middle" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</a></div>
+        <div id="fade" class="black_overlay"></div>
+						<div class="image">
+							<img id="main_pic" src="/static/images/{{obj.id}}.jpg"  alt="" />
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+		    <!--<script src="jquery-3.3.1.js"></script>-->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script> 	
+			var pic_id = 0;
+			function change_pic(){ 
+			pic_id = pic_id + 1;
+			mypic_id = {{obj.id}}+pic_id;
+			var imgObj = document.getElementById("main_pic");
+			imgObj.src="/static/images/"+mypic_id+".jpg";
+			}
+			</script>
+			<script type="text/javascript">
+			function play_music(){
+
+			var player = document.getElementById("audio");
+			var btn = document.getElementById("m_button");
+				if (player.paused){ /*如果已经暂停*/
+					player.play(); /*播放*/
+					btn.innerHTML = "Pause";
+					}else {
+					player.pause();/*暂停*/
+					btn.innerHTML = "Play";
+				}
+     		}
+			</script>
+
+	</body>
+</html>
