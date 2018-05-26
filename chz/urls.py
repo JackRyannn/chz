@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from django import views
+from django.views import static
 import myapp.views as mv
 from django.conf import settings
 from DjangoUeditor import urls as djud_urls
@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^$', mv.index),
     url(r'^ueditor/', include(djud_urls)),
     url(r'^myapp/', include(blog_url)),
-    url(r'^static/(?P<path>.*)$', views.static.serve,{'document_root': chz.settings.STATIC_ROOT }),
+    url(r'^static/(?P<path>.*)$', static.serve,{'document_root': chz.settings.STATIC_ROOT }),
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static
