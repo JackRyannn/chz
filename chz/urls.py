@@ -28,7 +28,6 @@ urlpatterns = [
     url(r'^ueditor/', include(djud_urls)),
     url(r'^myapp/', include(blog_url)),
     url(r'^static/(?P<path>.*)$', views.static.serve,{'document_root': chz.settings.STATIC_ROOT }),
-
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static
