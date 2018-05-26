@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/howto/deployment/wsgi/
 import sys
 
 sys.path.append('/var/www/chz')
-sys.path.append('/usr/local/lib/python3.6/site-packages')
+sys.path.append('/usr/local/python/lib/python2.7/site-packages')
 import os
 
 from django.core.wsgi import get_wsgi_application

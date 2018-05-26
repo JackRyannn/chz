@@ -17,7 +17,7 @@ def index(request):
 
 
 def home(request):
-    post_list = Article.objects.all()  # 获取全部的Article对象
+    post_list = Article.objects.all() 
     return render(request, 'myapp/home.html', {'post_list': post_list})
 
 
