@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views import static
-import myapp.views as mv
 from django.conf import settings
 from DjangoUeditor import urls as djud_urls
+from myapp import views
+import myapp.views as mv
 import myapp.urls as blog_url
 import chz.settings
 
@@ -27,6 +28,7 @@ urlpatterns = [
     url(r'^$', mv.index),
     url(r'^ueditor/', include(djud_urls)),
     url(r'^myapp/', include(blog_url)),
+    url(r'^home/', views.home, name="blog_home"),
     url(r'^static/(?P<path>.*)$', static.serve,{'document_root': chz.settings.STATIC_ROOT }),
 ]
 if settings.DEBUG:
