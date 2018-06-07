@@ -31,8 +31,7 @@ urlpatterns = [
     url(r'^home/', views.home, name="blog_home"),
     url(r'^static/(?P<path>.*)$', static.serve,{'document_root': chz.settings.STATIC_ROOT }),
 ]
-if settings.DEBUG:
+if not settings.DEBUG:
     from django.conf.urls.static import static
-
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
