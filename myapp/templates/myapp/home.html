@@ -2,8 +2,9 @@
  
 {% block content %}
 <div class="posts">
+    <!--{% if request.user.is_authenticated %}-->
     {% for post in post_list %}
-        <section class="post">
+    <section class="post">
             <header class="post-header">
                 <h2 class="post-title"><a href="{% url 'blog_detail' id=post.id %}">{{ post.title }}</a></h2>
  
@@ -14,11 +15,16 @@
  
                 <div class="post-description">
                     <p>
+                        {% if post.content|safe|length >= 200 %}
+                        {{ post.content|safe|slice:"200" }}...
+                        {% else %}
                         {{ post.content|safe }}
+                        {% endif %}
                     </p>
                 </div>
-                <a class="pure-button" href="{% url 'blog_detail' id=post.id %}">Read More >>> </a>
+                <!--<a class="pure-button" href="{% url 'blog_detail' id=post.id %}">Read More >>> </a>-->
         </section>
     {% endfor %}
+    <!--{% endif %}-->
 </div><!-- /.blog-post -->
 {% endblock %}
