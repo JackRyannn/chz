@@ -4,6 +4,7 @@
 <div class="posts">
     <!--{% if request.user.is_authenticated %}-->
     {% for post in post_list %}
+    {% if post.status == 1 or request.user.is_authenticated %}
     <section class="post">
             <header class="post-header">
                 <h2 class="post-title"><a href="{% url 'blog_detail' id=post.id %}">{{ post.title }}</a></h2>
@@ -24,6 +25,7 @@
                 </div>
                 <!--<a class="pure-button" href="{% url 'blog_detail' id=post.id %}">Read More >>> </a>-->
         </section>
+    {% endif %}
     {% endfor %}
     <!--{% endif %}-->
 </div><!-- /.blog-post -->

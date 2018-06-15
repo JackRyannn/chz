@@ -23,11 +23,12 @@ class Poem(models.Model):
 
 class Article(models.Model):
     title = models.CharField(u"博客标题", max_length=100)  # 博客标题
-    category = models.CharField(u"博客标签", max_length=50, blank=True)  # 博客标签
+    category = models.CharField(u"博客标签", max_length=50)  # 博客标签
+    status = models.CharField(u"文章状态（默认1：所有人可见；0：登陆账户可见）",max_length=10);
     pub_date = models.DateTimeField(u"发布日期", auto_now_add=True, editable=True)  # 博客发布日期
     update_time = models.DateTimeField(u'更新时间', auto_now=True, null=True)
     content = UEditorField(u"文章正文", height=300, default=u'', blank=True, imagePath="./uploads/blog/images/",
-                           toolbars='normal', filePath='./uploads/blog/files/')
+                           toolbars='full', filePath='./uploads/blog/files/')
     def __unicode__(self):
         return self.title
 
