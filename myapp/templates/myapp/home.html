@@ -2,7 +2,6 @@
  
 {% block content %}
 <div class="posts">
-    <!--{% if request.user.is_authenticated %}-->
     {% for post in post_list %}
     {% if post.status == 1 or request.user.is_authenticated %}
     <section class="post">
@@ -27,6 +26,5 @@
         </section>
     {% endif %}
     {% endfor %}
-    <!--{% endif %}-->
 </div><!-- /.blog-post -->
 {% endblock %}
