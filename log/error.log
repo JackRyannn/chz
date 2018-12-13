@@ -1,0 +1,3 @@
+[2018-12-13 16:47:24,681][MainThread:139878392481536][task_id:myapp.views][views.py:17][ERROR][current id === 97]
+[2018-12-13 16:48:27,044][MainThread:139878392481536][task_id:myapp.views][views.py:17][ERROR][current id === 97]
+[2018-12-13 17:06:30,596][Dummy-2:139878375696128][task_id:myapp.views][views.py:17][ERROR][current id === 97]

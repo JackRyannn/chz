@@ -2,6 +2,7 @@ from django.shortcuts import render
 from . import models
 import time
 import datetime
+import logging
 from myapp.models import Article
 from django.http import Http404
 
@@ -11,7 +12,9 @@ def index(request):
     t = time.strftime('%Y-%m-%d', time.localtime(time.time()+300))
     t_array = t.split('-')
     d = datetime.date(int(t_array[0]), int(t_array[1]), int(t_array[2])).isocalendar()
-    n = d[1] * 7 - 7 + d[2] -59
+    n = d[1] * 7 - 7 + d[2] - 250
+    logger = logging.getLogger(__name__)
+    logger.error("current id === %s",n)
     obj = models.Poem.objects.get(pk=n)
     return render(request,'myapp/index.html',{'time':t,'obj':obj})
 
